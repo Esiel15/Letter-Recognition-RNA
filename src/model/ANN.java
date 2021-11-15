@@ -36,7 +36,7 @@ public class ANN implements Comparable<ANN>{
     public int getANN() { return ann; }
     public void setANN(int ann) {
         ann &= ANN_MASK;
-        this.setNeurons(((ann & N_MASK) >> 14) + 26);
+        this.setNeurons(((ann & N_MASK) >> 14) + 16);
         this.setLayers(((ann & L_MASK) >> 12) + 1);
         this.setEpochs(((ann & E_MASK) >> 8));
         this.setLearningRate(((ann & LR_MASK) >> 4));
