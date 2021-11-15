@@ -71,7 +71,7 @@ public class GeneticAlgorithm {
      */
     private static void evaluatePobl(ArrayList<ANN> pobl, String filename, int poblN, int gen) throws Exception {
         //Instancias
-        Instances instances = cargarInstancias("./10x10Forest.arff");
+        Instances instances = cargarInstancias("./assets/letter-recognition.arff");
         
         //Configuracion de los parametros de la RNA
         for (ANN ind : pobl){
@@ -141,8 +141,10 @@ public class GeneticAlgorithm {
             //Se ordenan de mayor a menor
             Collections.sort(pobl, Collections.reverseOrder());
 
+
             PrintWriter pw = null;
             try{
+                new File(relativePath).createNewFile();
                 pw = new PrintWriter(new FileWriter(relativePath + filename + ext));
                 for (ANN ind : pobl) {
                     pw.println(ind.getANN() + "," + ind.getResult());
