@@ -23,6 +23,9 @@ public class App {
         //Esiel
         GeneticAlgorithm.evaluatePobl("pobl", 3, generation);
 
-        //GeneticAlgorithm.geneticAlgorithm("pobl", generation);
+        /*
+        GeneticAlgorithm.joinPobls("pobl", generation);
+        GeneticAlgorithm.geneticAlgorithm("pobl", generation + 1);
+        */
     }
 }
