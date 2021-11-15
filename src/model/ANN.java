@@ -40,8 +40,7 @@ public class ANN implements Comparable<ANN>{
         this.setLayers(((ann & L_MASK) >> 12) + 1);
         this.setEpochs(((ann & E_MASK) >> 8));
         this.setLearningRate(((ann & LR_MASK) >> 4));
-        this.setMomentum(((ann & M_MASK)));
-        
+        this.setMomentum(((ann & M_MASK)));   
     }
 
     public double getResult() { return r; }
