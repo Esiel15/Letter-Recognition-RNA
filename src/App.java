@@ -18,10 +18,10 @@ public class App {
         //GeneticAlgorithm.evaluatePobl("pobl", 1, generation);
 
         //Paulo
-        //GeneticAlgorithm.evaluatePobl("pobl", 2, generation);
+        GeneticAlgorithm.evaluatePobl("pobl", 2, generation);
 
         //Esiel
-        GeneticAlgorithm.evaluatePobl("pobl", 3, generation);
+        //GeneticAlgorithm.evaluatePobl("pobl", 3, generation);
 
         /*
         GeneticAlgorithm.joinPobls("pobl", generation);
