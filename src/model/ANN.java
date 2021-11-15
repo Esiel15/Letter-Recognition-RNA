@@ -2,7 +2,7 @@ package model;
 
 public class ANN implements Comparable<ANN>{
     public static final int N_MASK = 0b1111100000000000000;
-    public static final int N_MIN = 26;
+    public static final int N_MIN = 16;
     public static final int N_MAX = 42;
 
     public static final int L_MASK = 0b11000000000000;
@@ -47,13 +47,13 @@ public class ANN implements Comparable<ANN>{
     public void setResult(double r) { this.r = r; }
     
     public int getNeurons(){
-        return ((ann & N_MASK) >> 14) + 26;
+        return ((ann & N_MASK) >> 14) + 16;
     }
     
     public void setNeurons(int neuronas){
-        if (neuronas >= 26 && neuronas <= 42){
+        if (neuronas >= 16 && neuronas <= 42){
             ann &= ANN_MASK - N_MASK; //Se eliminan las antiguas neuronas
-            ann += (neuronas - 26) << 14; //Se colocan las nuevas neuronas
+            ann += (neuronas - 16) << 14; //Se colocan las nuevas neuronas
         }
     }
 
