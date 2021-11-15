@@ -12,16 +12,9 @@ public class App {
         //Algoritmo Genético Básico  (La condición de paro son 10 generaciones)
         //GeneticAlgorithm.firstPobl("pobl");
 
-        int generation = 1;
-
-        //Coria
-        //GeneticAlgorithm.evaluatePobl("pobl", 1, generation);
-
-        //Paulo
-        GeneticAlgorithm.evaluatePobl("pobl", 2, generation);
-
-        //Esiel
-        //GeneticAlgorithm.evaluatePobl("pobl", 3, generation);
+        int pobl = Integer.parseInt(args[0]);
+        int generation = Integer.parseInt(args[1]);
+        GeneticAlgorithm.evaluatePobl("pobl", pobl, generation);
 
         /*
         GeneticAlgorithm.joinPobls("pobl", generation);
