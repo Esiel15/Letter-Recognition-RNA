@@ -136,7 +136,7 @@ public class GeneticAlgorithm {
     }
 
     //Guarda la poblacion en un archivo
-    private static void savePobl(String filename, ArrayList<ANN> pobl) throws IOException{
+    private static synchronized void savePobl(String filename, ArrayList<ANN> pobl) throws IOException{
         if (pobl != null && pobl.size() > 0){
             //Se ordenan de mayor a menor
             Collections.sort(pobl, Collections.reverseOrder());
