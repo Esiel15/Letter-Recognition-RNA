@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import model.ANN;
 import model.GeneticAlgorithm;
 
 public class App {
@@ -12,10 +13,12 @@ public class App {
         //Algoritmo Genético Básico  (La condición de paro son 10 generaciones)
         //GeneticAlgorithm.firstPobl("pobl");
 
-        int pobl = Integer.parseInt(args[0]);
+        int poblN = Integer.parseInt(args[0]);
         int generation = Integer.parseInt(args[1]);
-        GeneticAlgorithm.evaluatePobl("pobl", pobl, generation);
-
+        for (ANN ann : GeneticAlgorithm.loadPobl("pobl" + poblN + "_gen" + generation))
+            System.out.println("ANN: " + ann.getANN() + " = " + ann);
+        GeneticAlgorithm.evaluatePobl("pobl", poblN, generation);
+        
         /*
         GeneticAlgorithm.joinPobls("pobl", generation);
         GeneticAlgorithm.geneticAlgorithm("pobl", generation + 1);

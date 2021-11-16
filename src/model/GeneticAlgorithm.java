@@ -32,7 +32,7 @@ public class GeneticAlgorithm {
         return data;
     }
 
-    private static final ArrayList<ANN> genPobl() {
+    public static final ArrayList<ANN> genPobl() {
         ArrayList<ANN> pobl = new ArrayList<>();
         Random random = new Random(System.currentTimeMillis());
         while (pobl.size() < POBL_SIZE) {
@@ -48,7 +48,7 @@ public class GeneticAlgorithm {
         return pobl;
     }
 
-    private static synchronized void saveEvaluation(Evaluation evaluation, ANN ann, int poblN, int gen) throws IOException, Exception {
+    public static synchronized void saveEvaluation(Evaluation evaluation, ANN ann, int poblN, int gen) throws IOException, Exception {
         File file = new File(relativePath + "results" + poblN + "_gen" + gen + ".txt");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter w = new PrintWriter(new BufferedWriter(fw));
@@ -69,7 +69,7 @@ public class GeneticAlgorithm {
      * @param poblacion
      * @throws Exception 
      */
-    private static void evaluatePobl(ArrayList<ANN> pobl, String filename, int poblN, int gen) throws Exception {
+    public static void evaluatePobl(ArrayList<ANN> pobl, String filename, int poblN, int gen) throws Exception {
         //Instancias
         Instances instances = cargarInstancias("./assets/letter-recognition.arff");
         
@@ -103,7 +103,7 @@ public class GeneticAlgorithm {
                             saveEvaluation(evaluation, ind, poblN, gen);
                             
                             DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-                            System.out.println("Termino a las: " + dateFormat.format(new Date())); 
+                            System.out.println("Termino ANN: " + ind.getANN() + "a las: " + dateFormat.format(new Date())); 
                         } catch (Exception ex) {
                             System.out.println("No se pudo realizar la evaluación");
                             System.err.println(ex.getMessage());
@@ -115,7 +115,7 @@ public class GeneticAlgorithm {
     }
 
     //Carga la poblacion de un archivo
-    private static ArrayList<ANN> loadPobl(String filename) throws FileNotFoundException, IOException, NumberFormatException{
+    public static ArrayList<ANN> loadPobl(String filename) throws FileNotFoundException, IOException, NumberFormatException{
         ArrayList<ANN> pobl = new ArrayList<>();
         
         BufferedReader br = null;
@@ -136,7 +136,7 @@ public class GeneticAlgorithm {
     }
 
     //Guarda la poblacion en un archivo
-    private static synchronized void savePobl(String filename, ArrayList<ANN> pobl) throws IOException{
+    public static synchronized void savePobl(String filename, ArrayList<ANN> pobl) throws IOException{
         if (pobl != null && pobl.size() > 0){
             //Se ordenan de mayor a menor
             Collections.sort(pobl, Collections.reverseOrder());
@@ -157,7 +157,7 @@ public class GeneticAlgorithm {
     }
 
     //Guarda la poblacion en tres archivo
-    private static void savePobl(String filename, ArrayList<ANN> pobl, int gen) throws IOException{
+    public static void savePobl(String filename, ArrayList<ANN> pobl, int gen) throws IOException{
         savePobl(filename.concat("1_gen" + gen), new ArrayList<>(pobl.subList(0, pobl.size()/3)));
         savePobl(filename.concat("2_gen" + gen), new ArrayList<>(pobl.subList(pobl.size()/3, (pobl.size()/3) * 2)));
         savePobl(filename.concat("3_gen" + gen), new ArrayList<>(pobl.subList((pobl.size()/3) * 2, pobl.size())));
@@ -185,7 +185,7 @@ public class GeneticAlgorithm {
     /**Genera dos hijos utilizando las estrategias de cruce X y pulso
      * Solo se agregaran a la descendencia si no existen en la poblacion actual
      */
-    private static ArrayList<ANN> genOffspring(ANN ann1, ANN ann2){
+    public static ArrayList<ANN> genOffspring(ANN ann1, ANN ann2){
         ArrayList<ANN> descPulso = new ArrayList<>();
         descPulso.add(new ANN((ann1.getANN() & ANN.C1_MASK) + (ann2.getANN() & ANN.C2_MASK)));
         descPulso.add(new ANN((ann1.getANN() & ANN.C2_MASK) + (ann2.getANN() & ANN.C1_MASK)));        
@@ -196,7 +196,7 @@ public class GeneticAlgorithm {
      * @param rna RNA a la cual se le va a aplicar la mutacion
      * @return retorna la RNA ya mutada
      */
-    private static ANN genMutation(ANN ann, int changes){
+    public static ANN genMutation(ANN ann, int changes){
         ANN mut = new ANN(ann.getANN());
         Random ram = new Random(System.currentTimeMillis());
         for (int i = 1, num ; i < changes ; i++){
