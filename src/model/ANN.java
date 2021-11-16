@@ -23,8 +23,8 @@ public class ANN implements Comparable<ANN>{
 
     public static final int ANN_MASK = 0b1111111111111111111;
 
-    public static final int C1_MASK = 0b1111101111110101010;
-    public static final int C2_MASK = 0b0000010000001010101;
+    public static final int C1_MASK = 0b1100001110010101010;
+    public static final int C2_MASK = 0b0011110001101010101;
 
     private int ann;
     private double r = -1;
