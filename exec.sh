@@ -4,4 +4,4 @@ echo "[i] Compilando"
 javac -cp ".;lib\weka.jar" -d bin src/**/*.java
 
 echo "[i] Ejecutando"
-java --add-opens=java.base/java.lang=ALL-UNNAMED -Xms2048M -Xmx8192M -cp ".;lib\weka.jar;bin" App n1 n2
+java --add-opens=java.base/java.lang=ALL-UNNAMED -Xms2048M -Xmx8192M -cp ".;lib\weka.jar;bin" App 2 2
