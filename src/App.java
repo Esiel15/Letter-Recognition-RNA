@@ -16,7 +16,7 @@ public class App {
         int poblN = Integer.parseInt(args[0]);
         int generation = Integer.parseInt(args[1]);
         for (ANN ann : GeneticAlgorithm.loadPobl("pobl" + poblN + "_gen" + generation))
-            System.out.println("ANN: " + ann.getANN() + " = " + ann);
+            System.out.println("ANN: " + ann.getANN() + " || " + ann);
         GeneticAlgorithm.evaluatePobl("pobl", poblN, generation);
         
         /*

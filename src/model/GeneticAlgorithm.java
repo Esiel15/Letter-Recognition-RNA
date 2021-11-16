@@ -103,7 +103,7 @@ public class GeneticAlgorithm {
                             saveEvaluation(evaluation, ind, poblN, gen);
                             
                             DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-                            System.out.println("Termino ANN: " + ind.getANN() + "a las: " + dateFormat.format(new Date())); 
+                            System.out.println("Terminó ANN: " + ind.getANN() + " a las: " + dateFormat.format(new Date())); 
                         } catch (Exception ex) {
                             System.out.println("No se pudo realizar la evaluación");
                             System.err.println(ex.getMessage());
