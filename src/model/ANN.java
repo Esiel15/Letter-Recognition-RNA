@@ -82,7 +82,7 @@ public class ANN implements Comparable<ANN>{
     }
     
     public double getLearningRate(){
-        return ((ann & LR_MASK) >> 4) * 0.25 + 1.0;
+        return (((ann & LR_MASK) >> 4) * 0.25 + 1.0)/10.0;
     }
     
     /**El valor del Learning Rate sera 1.0 + (0.025 * num)
@@ -95,7 +95,7 @@ public class ANN implements Comparable<ANN>{
     }
 
     public double getMomentum(){
-        return (ann & M_MASK) * 0.25 + 1.0;
+        return ((ann & M_MASK) * 0.25 + 1.0)/10.0;
     }
     
     /**El valor del Momentum sera 1.0 + (0.025 * num)
