@@ -90,8 +90,8 @@ public class GeneticAlgorithm {
                             for (int i = 1, c = ind.getLayers(), n = ind.getNeurons() ; i < c ; i++) hl.append(",").append(n);
                             mlp.setHiddenLayers(hl.toString());
                             mlp.setTrainingTime(ind.getEpochs());
-                            mlp.setLearningRate(ind.getLearningRate());
-                            mlp.setMomentum(ind.getMomentum());
+                            mlp.setLearningRate(ind.getLearningRate()/10);
+                            mlp.setMomentum(ind.getMomentum()/10);
                             
                             //Evaluacion del experimento en hilo
                             evaluation.crossValidateModel(mlp, instances, crossValidation, new Random(1));
